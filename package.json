@@ -1,0 +1,33 @@
+{
+  "name": "@axon-collective/axon-css",
+  "version": "1.0.0",
+  "description": "The package for integrating style formatting & configuration as defined by Axon Collective for standardized web projects.",
+  "main": "index.js",
+  "exports": {
+    "./config": "./tailwind.config.js",
+    "./axon-main.css":"./axon-main.css"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Axon-Collective/Axon-CSS.git"
+  },
+  "keywords": [
+    "CSS",
+    "Tailwind",
+    "PostCSS"
+  ],
+  "author": "Axon Collective",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Axon-Collective/Axon-CSS/issues"
+  },
+  "homepage": "https://github.com/Axon-Collective/Axon-CSS#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.8",
+    "tailwindcss": "^2.0.3"
+  }
+}

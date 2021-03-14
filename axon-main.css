@@ -1,0 +1,71 @@
+:root {
+    /*Colors*/
+    --primary:#234234;
+    --secondary: #015523;
+    
+    /*Sizing Increment*/
+    --increment: calc((var(--w-increment) + var(--h-increment)) / 2);
+    --w-increment: 10vw;
+    --h-increment: 10vh;
+    --p-increment: calc((var(--w-increment) + var(--h-increment)) / 2);
+    --wp-increment: 10%;
+    --button-height: calc(var(--increment) / 1.5);
+    --input-text-size: calc(var(--increment) / 4);
+    --card-border-radius: calc(var(--increment) / 5);
+    --banner-height: calc(var(--increment) * 3.9);
+  
+    /*Sizing Derivative*/
+    --button-margin: calc(var(--button-height) / 3.5);
+    --button-radius: calc(var(--button-height) / 3);
+    --button-text: calc(var(--button-height) * 0.5);
+    --button-padding: calc(var(--button-height) * 0.1)
+      calc(var(--button-height) * 0.2);
+    --card-scale: calc(5 * var(--w-increment));
+    --card-scale-compress: calc(4 * var(--w-increment));
+    --card-scale-expand: calc(7 * var(--w-increment));
+    --footer-height: calc(var(--h-increment) * 0.75);
+  
+    /*effects*/
+    --light-box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.25);
+    --card-box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.35);
+    --box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.35);
+    --dark-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.75);
+    --header-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15),
+      0 6px 20px 0 rgba(0, 0, 0, 0.13);
+  
+    --bg-color: var(--white);
+  
+    /*spacing*/
+    --text-padding: 5px 0px 5px 2.5px;
+    --ctr-padding: 20px;
+    --ctr-width: 100%;
+    --ctr-content-width: calc(
+      var(--wp-increment) * 9
+    ); /*not sure why this messes with the parent container when setting it to 10 but it does.*/
+    --box-internal-margins: calc(var(--increment) / 5);
+    --input-padding: 2.5px;
+    --flat-text-margin: calc(var(--increment) / 5);
+    --flat-text-padding: calc(var(--increment) / 10);
+  
+    /*positioning*/
+    --position-one: 1;
+    --position-above: 3;
+    --position-mid: 7;
+    --position-high: 10;
+    --position-top: 20;
+  
+    /*old*/
+    --block-x-scale: calc(5 * var(--increment));
+    --block-y-scale: calc(25vw + 12.5vh);
+    --horizontal-card-scale: calc(var(--increment) * 1.66);
+    --text-base: var(--increment);
+    --h1: var(--text-base);
+    --h2: calc(var(--text-base) / 2);
+    --h3: calc(var(--text-base) / 2.5);
+    --h4: calc(var(--text-base) / 2.75);
+    --h5: calc(var(--text-base) / 3);
+    --h6: calc(var(--text-base) / 3.5);
+    --p: calc(var(--text-base) / 4);
+    --box-padding: calc(var(--increment) / 10);
+    --horizontal-box-padding: calc(2vw + 1vh);
+  }
