@@ -2,6 +2,14 @@
     /*Colors*/
     --primary:49, 78, 141;
     --secondary:70, 144, 163;
+    --muted: 114, 114, 114;
+    --success: 76, 151, 47;
+    --danger: 160, 43, 43;
+    --warning:209, 206, 42;
+    --info: 45, 83, 189;
+    --light: 211, 211, 211;
+    --dark: 58, 58, 58;
+    --white: 255, 255, 255;
     
     /*Sizing Increment*/
     --increment: calc((var(--w-increment) + var(--h-increment)) / 2);
