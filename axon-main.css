@@ -1,7 +1,7 @@
 :root {
     /*Colors*/
-    --primary:#234234;
-    --secondary: #015523;
+    --primary:49, 78, 141;
+    --secondary:70, 144, 163;
     
     /*Sizing Increment*/
     --increment: calc((var(--w-increment) + var(--h-increment)) / 2);
@@ -54,7 +54,6 @@
     --position-high: 10;
     --position-top: 20;
   
-    /*old*/
     --block-x-scale: calc(5 * var(--increment));
     --block-y-scale: calc(25vw + 12.5vh);
     --horizontal-card-scale: calc(var(--increment) * 1.66);
@@ -69,3 +68,6 @@
     --box-padding: calc(var(--increment) / 10);
     --horizontal-box-padding: calc(2vw + 1vh);
   }
+
+  /*TODO: Add dark mode support: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme*/
+  /*use --dark-____ custom properties i.e. --primary: var(--dark-primary) */
