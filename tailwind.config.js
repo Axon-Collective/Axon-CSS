@@ -832,6 +832,10 @@ purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
     'disabled',
   ],
   variants: {
+    extend: {
+      opacity: ['disabled'],
+      cursor: ['hover', 'disabled']
+    },
     accessibility: ['responsive', 'focus-within', 'focus'],
     alignContent: ['responsive'],
     alignItems: ['responsive'],
