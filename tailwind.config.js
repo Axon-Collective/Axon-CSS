@@ -1,4 +1,13 @@
 const colors = require('tailwindcss/colors')
+function colorTranslate(opacityVariable, opacityValue, colorVariable){
+  if (opacityValue !== undefined) {
+    return `rgba(var(${colorVariable}), ${opacityValue})`
+  }
+  if (opacityVariable !== undefined) {
+    return `rgba(var(${colorVariable}), var(${opacityVariable}, 1))`
+  }
+  return `rgb(var(${colorVariable}))`
+}
 module.exports = {
 purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
   darkMode: false, // or 'media' or 'class'
@@ -6,6 +15,7 @@ purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
     extend: {
       zIndex: {
        '-10': '-10',
+       '-20': '-20',
       },
       margin: {
         '-two': '-2px',
@@ -15,96 +25,38 @@ purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
       transparent: 'transparent',
       current: 'currentColor',
       primary: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--primary), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--primary), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--primary))`
+        return colorTranslate(opacityVariable,opacityValue,"--primary")
       },
       secondary: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--secondary), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--secondary), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--secondary))`
+        return colorTranslate(opacityVariable,opacityValue,"--secondary")
       },
       muted: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--muted), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--muted), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--muted))`
+        return colorTranslate(opacityVariable,opacityValue,"--muted")
       },
       success: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--success), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--success), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--success))`
+        return colorTranslate(opacityVariable,opacityValue,"--success")
       },
       danger: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--danger), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--danger), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--danger))`
+        return colorTranslate(opacityVariable,opacityValue,"--danger")
       },
       warning: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--warning), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--warning), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--warning))`
+        return colorTranslate(opacityVariable,opacityValue,"--warning")
       },
       info: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--info), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--info), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--info))`
+        return colorTranslate(opacityVariable,opacityValue,"--info")
       },
       light: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--light), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--light), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--light))`
+        return colorTranslate(opacityVariable,opacityValue,"--light")
       },
       dark: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--dark), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--dark), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--dark))`
+        return colorTranslate(opacityVariable,opacityValue,"--dark")
       },
       white: ({ opacityVariable, opacityValue }) => {
-        if (opacityValue !== undefined) {
-          return `rgba(var(--white), ${opacityValue})`
-        }
-        if (opacityVariable !== undefined) {
-          return `rgba(var(--white), var(${opacityVariable}, 1))`
-        }
-        return `rgb(var(--white))`
+        return colorTranslate(opacityVariable,opacityValue,"--white")
       },
-      grey:'#525252',
+      grey: ({ opacityVariable, opacityValue }) => {
+        return colorTranslate(opacityVariable,opacityValue,"--grey")
+      },
       black: colors.black,
       gray: colors.coolGray,
       red: colors.red,
@@ -572,6 +524,7 @@ purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
       full: '100%',
       screen: '100vh',
       '75p':'75px',
+      75:'75%',
     },
     minWidth: {
       0: '0px',
@@ -833,127 +786,9 @@ purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
   ],
   variants: {
     extend: {
-      opacity: ['disabled'],
-      cursor: ['hover', 'disabled']
+      
     },
-    accessibility: ['responsive', 'focus-within', 'focus'],
-    alignContent: ['responsive'],
-    alignItems: ['responsive'],
-    alignSelf: ['responsive'],
-    animation: ['responsive'],
-    appearance: ['responsive'],
-    backgroundAttachment: ['responsive'],
-    backgroundClip: ['responsive'],
-    backgroundColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
-    backgroundImage: ['responsive'],
-    backgroundOpacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    backgroundPosition: ['responsive'],
-    backgroundRepeat: ['responsive'],
-    backgroundSize: ['responsive'],
-    borderCollapse: ['responsive'],
-    borderColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
-    borderOpacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    borderRadius: ['responsive'],
-    borderStyle: ['responsive'],
-    borderWidth: ['responsive'],
-    boxShadow: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    boxSizing: ['responsive'],
-    clear: ['responsive'],
-    container: ['responsive'],
-    cursor: ['responsive'],
-    display: ['responsive'],
-    divideColor: ['responsive', 'dark'],
-    divideOpacity: ['responsive'],
-    divideStyle: ['responsive'],
-    divideWidth: ['responsive'],
-    fill: ['responsive'],
-    flex: ['responsive'],
-    flexDirection: ['responsive'],
-    flexGrow: ['responsive'],
-    flexShrink: ['responsive'],
-    flexWrap: ['responsive'],
-    float: ['responsive'],
-    fontFamily: ['responsive'],
-    fontSize: ['responsive'],
-    fontSmoothing: ['responsive'],
-    fontStyle: ['responsive'],
-    fontVariantNumeric: ['responsive'],
-    fontWeight: ['responsive'],
-    gap: ['responsive'],
-    gradientColorStops: ['responsive', 'dark', 'hover', 'focus'],
-    gridAutoColumns: ['responsive'],
-    gridAutoFlow: ['responsive'],
-    gridAutoRows: ['responsive'],
-    gridColumn: ['responsive'],
-    gridColumnEnd: ['responsive'],
-    gridColumnStart: ['responsive'],
-    gridRow: ['responsive'],
-    gridRowEnd: ['responsive'],
-    gridRowStart: ['responsive'],
-    gridTemplateColumns: ['responsive'],
-    gridTemplateRows: ['responsive'],
-    height: ['responsive'],
-    inset: ['responsive'],
-    justifyContent: ['responsive'],
-    justifyItems: ['responsive'],
-    justifySelf: ['responsive'],
-    letterSpacing: ['responsive'],
-    lineHeight: ['responsive'],
-    listStylePosition: ['responsive'],
-    listStyleType: ['responsive'],
-    margin: ['responsive'],
-    maxHeight: ['responsive'],
-    maxWidth: ['responsive'],
-    minHeight: ['responsive'],
-    minWidth: ['responsive'],
-    objectFit: ['responsive'],
-    objectPosition: ['responsive'],
-    opacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    order: ['responsive'],
-    outline: ['responsive', 'focus-within', 'focus'],
-    overflow: ['responsive'],
-    overscrollBehavior: ['responsive'],
-    padding: ['responsive'],
-    placeContent: ['responsive'],
-    placeItems: ['responsive'],
-    placeSelf: ['responsive'],
-    placeholderColor: ['responsive', 'dark', 'focus'],
-    placeholderOpacity: ['responsive', 'focus'],
-    pointerEvents: ['responsive'],
-    position: ['responsive'],
-    resize: ['responsive'],
-    ringColor: ['responsive', 'dark', 'focus-within', 'focus'],
-    ringOffsetColor: ['responsive', 'dark', 'focus-within', 'focus'],
-    ringOffsetWidth: ['responsive', 'focus-within', 'focus'],
-    ringOpacity: ['responsive', 'focus-within', 'focus'],
-    ringWidth: ['responsive', 'focus-within', 'focus'],
-    rotate: ['responsive', 'hover', 'focus'],
-    scale: ['responsive', 'hover', 'focus'],
-    skew: ['responsive', 'hover', 'focus'],
-    space: ['responsive'],
-    stroke: ['responsive'],
-    strokeWidth: ['responsive'],
-    tableLayout: ['responsive'],
-    textAlign: ['responsive'],
-    textColor: ['responsive', 'dark', 'group-hover', 'focus-within', 'hover', 'focus'],
-    textDecoration: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    textOpacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
-    textOverflow: ['responsive'],
-    textTransform: ['responsive'],
-    transform: ['responsive'],
-    transformOrigin: ['responsive'],
-    transitionDelay: ['responsive'],
-    transitionDuration: ['responsive'],
-    transitionProperty: ['responsive'],
-    transitionTimingFunction: ['responsive'],
-    translate: ['responsive', 'hover', 'focus'],
-    userSelect: ['responsive'],
-    verticalAlign: ['responsive'],
-    visibility: ['responsive'],
-    whitespace: ['responsive'],
-    width: ['responsive'],
-    wordBreak: ['responsive'],
-    zIndex: ['responsive', 'focus-within', 'focus'],
+
   },
   plugins: [],
 }

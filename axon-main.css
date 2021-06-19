@@ -10,6 +10,7 @@
     --light: 211, 211, 211;
     --dark: 58, 58, 58;
     --white: 255, 255, 255;
+    --grey: 82,82,82;
     
     /*Sizing Increment*/
     --increment: calc((var(--w-increment) + var(--h-increment)) / 2);
