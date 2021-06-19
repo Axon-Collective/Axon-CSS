@@ -786,7 +786,7 @@ purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
   ],
   variants: {
     extend: {
-      
+      opacity: ['disabled'],
     },
 
   },
